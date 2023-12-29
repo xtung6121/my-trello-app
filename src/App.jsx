@@ -2,6 +2,7 @@ import Button from '@mui/material/Button'
 import AbcIcon from '@mui/icons-material/Abc'
 import HomeIcon from '@mui/icons-material/Home'
 import { pink } from '@mui/material/colors'
+import Typography from '@mui/material/Typography'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Button variant="outlined">UI Button</Button>
       <AbcIcon></AbcIcon>
 
+      <Typography variant="subtitle1">subtitle</Typography>
       <br></br>
       <HomeIcon />
       <HomeIcon color="primary" />
