@@ -28,16 +28,15 @@ function BoardBar() {
   return (
     <Box sx ={{
       height: (theme) => theme.trello.boardBarHeight,
+      gap: 2,
+      paddingX: 2,
       width: '100%',
       display: 'flex',
-      alignItems: 'center',
-      paddingX: 2,
-      justifyContent: 'space-between',
-      gap: 2,
       overflowX: 'auto',
+      alignItems: 'center',
+      justifyContent: 'space-between',
       borderBottom: '1px solid #70a1ff',
-      bgcolor: (theme) =>
-        (theme.palette.mode === 'dark' ? '#34495e' : '#3498db')
+      bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#3498db')
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <Chip sx={MENU_STYLE} icon={<DashboardIcon />} label="XuanTung HCMUNRE"
@@ -79,19 +78,19 @@ function BoardBar() {
           }}
         >
           <Tooltip title="Xuan Tung">
-            <Avatar alt="XuanTung" src="/static/images/avatar/1.jpg" />
+            <Avatar alt="XuanTung" src="" />
           </Tooltip>
           <Tooltip title="Xuan Tung">
-            <Avatar alt="XuanTung" src="/static/images/avatar/1.jpg" />
+            <Avatar alt="XuanTung" src="" />
           </Tooltip>
           <Tooltip title="Xuan Tung">
-            <Avatar alt="XuanTung" src="/static/images/avatar/1.jpg" />
+            <Avatar alt="XuanTung" src="" />
           </Tooltip>
           <Tooltip title="Xuan Tung">
-            <Avatar alt="XuanTung" src="/static/images/avatar/1.jpg" />
+            <Avatar alt="XuanTung" src="" />
           </Tooltip>
           <Tooltip title="Xuan Tung">
-            <Avatar alt="XuanTung" src="/static/images/avatar/1.jpg" />
+            <Avatar alt="XuanTung" src="" />
           </Tooltip>
         </AvatarGroup>
       </Box>

@@ -37,7 +37,7 @@ function Workspaces() {
         Workspaces
       </Button>
       <Menu
-        id="basic-button-workspaces-workspaces"
+        id="basic-button-workspaces"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
