@@ -26,16 +26,15 @@ function AppBar() {
   const [searchValue, setSearchValue] = useState('')
   return (
     <Box sx ={{
-      height: (theme) => theme.trello.appBarHeight,
-      width: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
       gap: 2,
       paddingX: 2,
+      width: '100%',
+      display: 'flex',
       overflowX: 'auto',
-      bgcolor: (theme) =>
-        (theme.palette.mode === 'dark' ? '#2c3e50' : '#1565c0')
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: (theme) => theme.trello.appBarHeight,
+      bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#2c3e50' : '#1565c0')
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <AppsIcon sx={{ color:'white' }}/>
