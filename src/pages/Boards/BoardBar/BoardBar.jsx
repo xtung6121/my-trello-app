@@ -39,21 +39,11 @@ function BoardBar() {
       bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#3498db')
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Chip sx={MENU_STYLE} icon={<DashboardIcon />} label="XuanTung HCMUNRE"
-          onClick = {() => {
-          }}/>
-        <Chip sx={MENU_STYLE} icon={<VpnLockIcon />} label="Public/Private Workspace"
-          onClick = {() => {
-          }}/>
-        <Chip sx={MENU_STYLE} icon={<AddToDriveIcon />} label="Add to Google Drive"
-          onClick = {() => {
-          }}/>
-        <Chip sx={MENU_STYLE} icon={<BoltIcon />} label="Automation"
-          onClick = {() => {
-          }}/>
-        <Chip sx={MENU_STYLE} icon={<FilterListIcon />} label="Filter"
-          onClick = {() => {
-          }}/>
+        <Chip sx={MENU_STYLE} icon={<DashboardIcon />} label="XuanTung HCMUNRE" onClick = {() => {}}/>
+        <Chip sx={MENU_STYLE} icon={<VpnLockIcon />} label="Public/Private Workspace" onClick = {() => {}}/>
+        <Chip sx={MENU_STYLE} icon={<AddToDriveIcon />} label="Add to Google Drive" onClick = {() => {}}/>
+        <Chip sx={MENU_STYLE} icon={<BoltIcon />} label="Automation" onClick = {() => {}}/>
+        <Chip sx={MENU_STYLE} icon={<FilterListIcon />} label="Filter" onClick = {() => {}}/>
       </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
