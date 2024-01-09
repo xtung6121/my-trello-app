@@ -8,42 +8,46 @@ import CommentIcon from '@mui/icons-material/Comment'
 import AttachmentIcon from '@mui/icons-material/Attachment'
 import Typography from '@mui/material/Typography'
 
-function Card({ temporaryHideMedia }) {
-  if (temporaryHideMedia) {
-    return (
-      <MuiCard sx={{
-        cursor: 'pointer',
-        boxShadow: '0 1px 1px rgba(0, 0, 0, 0.1)',
-        overflow: 'unset' }}>
-        <CardContent sx={{ '&last-child':{ p: 1.5 }, p: 1.5 }}>
-          <Typography>Card test 02</Typography>
-        </CardContent>
 
-      </MuiCard>
-    )
+function Card({ card }) {
+
+  const shouldShowCardActions = () => {
+    return !!card?.memberIds?.length || !!card?.comments?.length || !!card?.attachments?.length
   }
+
   return (
     <MuiCard sx={{
       cursor: 'pointer',
       boxShadow: '0 1px 1px rgba(0, 0, 0, 0.1)',
       overflow: 'unset' }}>
+
+      {card?.cover &&
       <CardMedia
         sx={{
           height: 140,
           cursor: 'pointer',
           boxShadow: '0 1px 1px rgba(0, 0, 0, 0.1)'
-        }}
-        image="https://www.hanoistudio.vn/wp-content/uploads/2021/05/cach-tao-dang-chup-anh-lung-linh-voi-nang-6.jpeg"
-        title="green iguana"
-      />
+        }} image={card?.cover} title={card.description}
+      />}
+
       <CardContent sx={{ '&last-child':{ p: 1.5 }, p: 1.5 }}>
-        <Typography>Xuân Tùng</Typography>
+        <Typography>{card?.title}</Typography>
       </CardContent>
+      {shouldShowCardActions() &&
       <CardActions sx={{ p: '0 4px 8px 4px' }}>
-        <Button size="small"> {<GroupIcon/>}20</Button>
-        <Button size="small"> {<CommentIcon/>}15</Button>
-        <Button size="small"> {<AttachmentIcon/>}1</Button>
-      </CardActions>
+        {!!card?.memberIds?.length &&
+      <Button size="small">{<GroupIcon/>}{card?.memberIds?.length}</Button>}
+
+        {!!card?.comments?.length &&
+      <Button size="small">
+        {<CommentIcon/>}{card?.comments?.length}
+      </Button>}
+
+        {!!card?.attachments?.length &&
+      <Button size="small">
+        {<AttachmentIcon/>}{card?.attachments?.length}
+      </Button>}
+      </CardActions>}
     </MuiCard>
   )
 }

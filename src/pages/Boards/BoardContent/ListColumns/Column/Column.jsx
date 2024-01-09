@@ -17,11 +17,23 @@ import DragHandleIcon from '@mui/icons-material/DragHandle'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import ListCard from './ListCards/ListCard'
+import { mapOrder } from '~/utils/sorts'
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
-// const COLUMN_HEADER_HEIGHT = '50px'
-// const COLUMN_FOOTER_HEIGHT = '56px'
+function Column({ column }) {
 
-function Column() {
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
+    id: column._id,
+    data: { ...column }
+  })
+
+  const style = {
+    // touchAction: 'none', // dành cho sensor dạng default sensor
+    // Nếu sử dụng CSS.Tranform sẽ bị stretch
+    transform: CSS.Translate.toString(transform),
+    transition
+  }
 
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
@@ -31,18 +43,26 @@ function Column() {
   const handleClose = () => {
     setAnchorEl(null)
   }
+  const oderedColumns = mapOrder(column?.cards, column?.cardOrderIds, '_id')
   return (
-    <Box sx={{
-      m: 1,
-      minWidth: '300px',
-      maxWidth: '300px',
-      bgcolor: (theme) =>
-        (theme.palette.mode === 'dark' ? '#333643' : '#ebecf0'),
-      wl: 2,
-      borderRadius: '6px',
-      height: 'fit-content',
-      maxHeight: (theme) => `calc(${theme.trello.boardContentHeight} - ${theme.spacing(5)})`
-    }}>
+    <Box
+
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+
+      sx={{
+        m: 1,
+        minWidth: '300px',
+        maxWidth: '300px',
+        bgcolor: (theme) =>
+          (theme.palette.mode === 'dark' ? '#333643' : '#ebecf0'),
+        wl: 2,
+        borderRadius: '6px',
+        height: 'fit-content',
+        maxHeight: (theme) => `calc(${theme.trello.boardContentHeight} - ${theme.spacing(5)})`
+      }}>
       {/* Box header column */}
       <Box
         sx={{
@@ -57,7 +77,7 @@ function Column() {
           fontWeight: 'bold',
           cursor: 'pointer'
         }}>
-          Column Title
+          {column?.title}
         </Typography>
 
         <Tooltip title="More Option">
@@ -105,7 +125,7 @@ function Column() {
         </Menu>
       </Box>
       {/* Box list card */}
-      <ListCard/>
+      <ListCard cards={ oderedColumns }/>
       {/* Box footer card */}
       <Box
         sx={{
