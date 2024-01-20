@@ -22,7 +22,6 @@ function ListColumns({ columns }) {
         {columns?.map(column => <Column key={column._id} column= {column}/>)}
         {/* <Column /> */}
 
-
         {/* Add new column */}
         <Box sx={{
           m: 1,

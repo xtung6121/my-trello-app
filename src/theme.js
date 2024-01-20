@@ -69,7 +69,7 @@ const theme = extendTheme({
     },
     MuiOutlinedInput: {
       styleOverrides: {
-        root: ({ theme }) => {
+        root: () => {
           return {
             // color: theme.palette.primary,
             fontSize: '0..875rem',

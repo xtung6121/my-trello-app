@@ -64,7 +64,7 @@ function BoardBar({ board }) {
           Invite</Button>
 
         <AvatarGroup
-          max={4}
+          max={5}
           sx={{
             gap: '9px',
             '& .MuiAvatar-root': {
@@ -80,17 +80,26 @@ function BoardBar({ board }) {
           <Tooltip title="Xuan Tung">
             <Avatar alt="XuanTung" src="" />
           </Tooltip>
-          <Tooltip title="Xuan Tung">
-            <Avatar alt="XuanTung" src="" />
+          <Tooltip title="PhuongDong">
+            <Avatar alt="MongDB" src="" />
           </Tooltip>
-          <Tooltip title="Xuan Tung">
-            <Avatar alt="XuanTung" src="" />
+          <Tooltip title="AnhDung">
+            <Avatar alt="AnhDung" src="" />
           </Tooltip>
-          <Tooltip title="Xuan Tung">
-            <Avatar alt="XuanTung" src="" />
+          <Tooltip title="DaoQuang">
+            <Avatar alt="DaoQuang" src="" />
           </Tooltip>
-          <Tooltip title="Xuan Tung">
-            <Avatar alt="XuanTung" src="" />
+          <Tooltip title="ViNhan">
+            <Avatar alt="ViNhan" src="" />
+          </Tooltip>
+          <Tooltip title="Diem Thi">
+            <Avatar alt="DiemThi" src="" />
+          </Tooltip>
+          <Tooltip title="Diem Thi">
+            <Avatar alt="DiemThi" src="" />
+          </Tooltip>
+          <Tooltip title="Diem Thi">
+            <Avatar alt="DiemThi" src="" />
           </Tooltip>
         </AvatarGroup>
       </Box>
