@@ -54,6 +54,28 @@ export const mockData = {
           { _id: 'card-id-12', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 12', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
           { _id: 'card-id-13', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 13', description: null, cover: null, memberIds: [], comments: [], attachments: [] }
         ]
+      },
+      {
+        _id: 'column-id-04',
+        boardId: 'board-id-01',
+        title: 'Todos 04',
+        cardOrderIds: ['card-id-11', 'card-id-12', 'card-id-13'],
+        cards: [
+          { _id: 'card-id-11', boardId: 'board-id-01', columnId: 'column-id-04', title: 'Title of card 11', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
+          { _id: 'card-id-12', boardId: 'board-id-01', columnId: 'column-id-04', title: 'Title of card 12', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
+          { _id: 'card-id-13', boardId: 'board-id-01', columnId: 'column-id-04', title: 'Title of card 13', description: null, cover: null, memberIds: [], comments: [], attachments: [] }
+        ]
+      },
+      {
+        _id: 'column-id-05',
+        boardId: 'board-id-02',
+        title: 'Column 05'
+        // cardOrderIds: ['card-id-11', 'card-id-12', 'card-id-13'],
+        // cards: [
+        //   { _id: 'card-id-11', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 11', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
+        //   { _id: 'card-id-12', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 12', description: null, cover: null, memberIds: [], comments: [], attachments: [] },
+        //   { _id: 'card-id-13', boardId: 'board-id-01', columnId: 'column-id-03', title: 'Title of card 13', description: null, cover: null, memberIds: [], comments: [], attachments: [] }
+        // ]
       }
     ]
   }
