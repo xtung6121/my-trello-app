@@ -80,8 +80,8 @@ function BoardBar({ board }) {
           <Tooltip title="Xuan Tung">
             <Avatar alt="XuanTung" src="" />
           </Tooltip>
-          <Tooltip title="PhuongDong">
-            <Avatar alt="MongDB" src="" />
+          <Tooltip title="Diem Thi">
+            <Avatar alt="DiemThi" src="" />
           </Tooltip>
           <Tooltip title="AnhDung">
             <Avatar alt="AnhDung" src="" />
@@ -91,9 +91,6 @@ function BoardBar({ board }) {
           </Tooltip>
           <Tooltip title="ViNhan">
             <Avatar alt="ViNhan" src="" />
-          </Tooltip>
-          <Tooltip title="Diem Thi">
-            <Avatar alt="DiemThi" src="" />
           </Tooltip>
           <Tooltip title="Diem Thi">
             <Avatar alt="DiemThi" src="" />
