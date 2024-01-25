@@ -96,7 +96,7 @@ function BoardContent({ board }) {
 
         // Thêm PlaceHolderCard nếu column rỗng: Bị kéo hết card đi không còn cái nào nữa.
         if (isEmpty(nextActiveColumn.cards)) {
-          console.log('Card cuối cùng bị kéo đi')
+          // console.log('Card cuối cùng bị kéo đi')
           nextActiveColumn.cards = [generatePlaceHolderCard(nextActiveColumn)]
         }
 
