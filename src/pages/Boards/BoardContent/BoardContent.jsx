@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react'
 import { arrayMove } from '@dnd-kit/sortable'
 
 // xử lý dữ liệu xử lý mảng,...
-import { cloneDeep } from 'lodash'
+import { cloneDeep, isEmpty } from 'lodash'
+import { generatePlaceHolderCard } from '~/utils/fomatter'
 
 import {
   DndContext,
@@ -93,6 +94,12 @@ function BoardContent({ board }) {
         // column khác )
         nextActiveColumn.cards = nextActiveColumn.cards.filter(card => card._id !== activeDraggingCardId)
 
+        // Thêm PlaceHolderCard nếu column rỗng: Bị kéo hết card đi không còn cái nào nữa.
+        if (isEmpty(nextActiveColumn.cards)) {
+          console.log('Card cuối cùng bị kéo đi')
+          nextActiveColumn.cards = [generatePlaceHolderCard(nextActiveColumn)]
+        }
+
         // Cập nhật lại mảng cardOrderIds cho chuẩn dữ liệu
         nextActiveColumn.cardOrderIds = nextActiveColumn.cards.map(card => card._id)
       }
@@ -110,6 +117,9 @@ function BoardContent({ board }) {
         }
         // Tiếp theo thêm card đang kéo vào overColumn theo vị trí index mới
         nextOverColumn.cards = nextOverColumn.cards.toSpliced(newCardIndex, 0, rebuild_activeDraggingCardData)
+
+        nextActiveColumn.cards = nextOverColumn.cards.filter(card => !card.FE_PlaceholderCard)
+        // Cập nhật lại mảng CardOrder cho chuẩn dữ liệu
         nextOverColumn.cardOrderIds = nextOverColumn.cards.map(card => card._id)
       }
       return nextColumns

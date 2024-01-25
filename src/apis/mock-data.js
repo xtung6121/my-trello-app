@@ -67,7 +67,8 @@ export const mockData = {
         Quan trọng khi tạo: phải đầy đủ: (_id, boardId, columnId, FE_PlaceholderCard) */
         cardOrderIds: ['card-id-04-placeholder-card'],
         cards: [
-          { _id: 'card-id-04-placeholder-card',
+          {
+            _id: 'card-id-04-placeholder-card',
             boardId: 'board-id-01',
             columnId: 'column-id-04',
             FE_PlaceholderCard: true
