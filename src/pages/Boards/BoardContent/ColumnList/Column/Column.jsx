@@ -17,14 +17,14 @@ import Tooltip from '@mui/material/Tooltip'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import AddCardIcon from '@mui/icons-material/AddCard'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
-import ListCards from './ListCards/ListCards'
+import ListCards from './CardList/CardList'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import TextField from '@mui/material/TextField'
 import CloseIcon from '@mui/icons-material/Close'
 import { useConfirm } from 'material-ui-confirm'
 
-function Column({ column, createNewCard, deleteColumnDetails }) {
+function Column({ column, createNewCard, deleteColumnDetails, deleteCardDetails, updateCardDetails }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: column._id,
     data: { ...column }
@@ -102,7 +102,7 @@ function Column({ column, createNewCard, deleteColumnDetails }) {
        * - Với việc sử dụng Redux như vậy thì code sẽ Clean chuẩn chỉnh hơn rất nhiều.
        */
       deleteColumnDetails(column._id)
-    }).catch(() => {})
+    }).catch(() => { })
   }
 
   // Phải bọc div ở đây vì vấn đề chiều cao của column khi kéo thả sẽ có bug kiểu kiểu flickering (video 32)
@@ -202,7 +202,7 @@ function Column({ column, createNewCard, deleteColumnDetails }) {
         </Box>
 
         {/* List Cards */}
-        <ListCards cards={orderedCards} />
+        <ListCards cards={orderedCards} deleteCardDetails={deleteCardDetails} updateCardDetails={updateCardDetails} />
 
         {/* Box Column Footer */}
         <Box sx={{

@@ -1,0 +1,109 @@
+/* src/pages/Boards/BoardList.css */
+
+.boards-container {
+  padding: 40px 20px;
+  min-height: calc(100vh - 58px);
+  background-color: var(--mui-palette-background-default);
+}
+
+.boards-layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 32px;
+}
+
+.boards-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+}
+
+.boards-main {
+  flex-grow: 1;
+}
+
+.board-card {
+  position: relative;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.board-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.board-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease;
+}
+
+.board-card:hover::before {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.board-card-title {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.board-card-star {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.8);
+  align-self: flex-end;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.board-card-star:hover {
+  color: #f1c40f;
+  transform: scale(1.2);
+}
+
+.create-board-card {
+  height: 120px;
+  border-radius: 8px;
+  background-color: var(--mui-palette-background-paper);
+  border: 2px dashed var(--mui-palette-divider, #b2bec3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mui-palette-text-secondary, #636e72);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-board-card:hover {
+  background-color: var(--mui-palette-action-hover, #f1f2f6);
+  border-color: var(--mui-palette-primary-main, #0984e3);
+  color: var(--mui-palette-primary-main, #0984e3);
+}
+
+/* Gradients for boards */
+.gradient-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.gradient-2 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); }
+.gradient-3 { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); }
+.gradient-4 { background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); }
+.gradient-5 { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); }
+.gradient-6 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
