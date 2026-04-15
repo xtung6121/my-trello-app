@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField'
 import CloseIcon from '@mui/icons-material/Close'
 import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable'
 
-function ListColumns({ columns, createNewColumn, createNewCard, deleteColumnDetails }) {
+function ListColumns({ columns, createNewColumn, createNewCard, deleteColumnDetails, deleteCardDetails, updateCardDetails }) {
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false)
   const toggleOpenNewColumnForm = () => setOpenNewColumnForm(!openNewColumnForm)
 
@@ -60,6 +60,8 @@ function ListColumns({ columns, createNewColumn, createNewCard, deleteColumnDeta
           column={column}
           createNewCard={createNewCard}
           deleteColumnDetails={deleteColumnDetails}
+          deleteCardDetails={deleteCardDetails}
+          updateCardDetails={updateCardDetails}
         />)}
 
         {/* Box Add new column CTA */}

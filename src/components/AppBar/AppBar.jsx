@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Box from '@mui/material/Box'
 import SelectMode from '~/components/ModeSelect/ModeSelect'
 import AppsIcon from '@mui/icons-material/Apps'
-import { ReactComponent as TrelloIcon } from '~/assets/trello.svg'
+import TrelloIcon from '~/assets/trello.svg?react';
 import SvgIcon from '@mui/material/SvgIcon'
 import Typography from '@mui/material/Typography'
 import Workspaces from './Menus/Workspaces'
@@ -20,12 +20,13 @@ import LibraryAddIcon from '@mui/icons-material/LibraryAdd'
 import InputAdornment from '@mui/material/InputAdornment'
 import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
+import { Link } from 'react-router-dom'
 
 
 function AppBar() {
   const [searchValue, setSearchValue] = useState('')
   return (
-    <Box sx ={{
+    <Box sx={{
       gap: 2,
       paddingX: 2,
       width: '100%',
@@ -37,22 +38,24 @@ function AppBar() {
       bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#2c3e50' : '#1565c0')
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <AppsIcon sx={{ color:'white' }}/>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-          <SvgIcon component={TrelloIcon} inheritViewBox sx={{ color:'white', fontSize: 'small' }} />
-          <Typography sx={{ fontSize: '1rem', fontWeight: 'bold', color:'white' }} variant="span">Todos</Typography>
-        </Box>
+        <AppsIcon sx={{ color: 'white' }} />
+        <Link to="/boards" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
+          <SvgIcon component={TrelloIcon} inheritViewBox sx={{ color: 'white', fontSize: 'small' }} />
+          <Typography
+            sx={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }} variant="span">Todos</Typography>
+        </Link>
 
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
-          <Workspaces/>
-          <Recent/>
-          <Starred/>
-          <Template/>
+          <Workspaces />
+          <Recent />
+          <Starred />
+          <Template />
           <Button
+            // onClick={createNewBoardAPI}
             sx={{ color: 'white', border: 'none', '&:hover': { border: 'none' } }}
             variant="outlined"
             startIcon={<LibraryAddIcon />}>
-              Create</Button>
+            Create</Button>
         </Box>
 
       </Box>
@@ -68,13 +71,13 @@ function AppBar() {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <SearchIcon sx={{ color: 'white' }}/>
+                <SearchIcon sx={{ color: 'white' }} />
               </InputAdornment>
             ),
             endAdornment: (
               <CloseIcon
-                fontSize= "small"
-                sx={{ color: searchValue ? 'white': 'transparent', cursor: 'pointer' }}
+                fontSize="small"
+                sx={{ color: searchValue ? 'white' : 'transparent', cursor: 'pointer' }}
                 onClick={() => setSearchValue('')}
               />
             )
@@ -96,17 +99,17 @@ function AppBar() {
 
         <Tooltip title="Notifications">
           <Badge color="warning" variant="dot" sx={{ cursor: 'pointer' }}>
-            <NotificationsNoneIcon sx={{ color:'white' }} />
+            <NotificationsNoneIcon sx={{ color: 'white' }} />
           </Badge>
         </Tooltip>
 
         <Tooltip title="Help">
           <Badge variant="dot" sx={{ cursor: 'pointer' }}>
-            <HelpOutlineIcon sx={{ color:'white' }}/>
+            <HelpOutlineIcon sx={{ color: 'white' }} />
           </Badge>
         </Tooltip>
 
-        <Profile/>
+        <Profile />
       </Box>
     </Box>
   )

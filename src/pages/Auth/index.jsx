@@ -2,7 +2,6 @@ import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-// import React from 'react'
 
 
 function index() {
@@ -37,8 +36,8 @@ function index() {
           label="Email"
           type="email"
           defaultValue=""
-          // value={email}
-          // onChange={this.handleChange}
+        // value={email}
+        // onChange={this.handleChange}
         />
         <TextField
           sx={{
@@ -50,8 +49,8 @@ function index() {
           label="Password"
           type="password"
           autoComplete="current-password"
-          // value={password}
-          // onChange={this.handleChange}
+        // value={password}
+        // onChange={this.handleChange}
         />
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <Button sx={{ m: 2 }} type='submit' Button variant="contained">Submit</Button>

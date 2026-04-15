@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
-import ListColumns from './ListColumns/ListColumns'
+import ListColumns from './ColumnList/ColumnList'
 
 import {
   DndContext,
@@ -23,8 +23,8 @@ import { useEffect, useState, useCallback, useRef } from 'react'
 import { cloneDeep, isEmpty } from 'lodash'
 import { generatePlaceholderCard } from '~/utils/formatters'
 
-import Column from './ListColumns/Column/Column'
-import Card from './ListColumns/Column/ListCards/Card/Card'
+import Column from './ColumnList/Column/Column'
+import Card from './ColumnList/Column/CardList/Card/Card'
 
 const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: 'ACTIVE_DRAG_ITEM_TYPE_COLUMN',
@@ -38,7 +38,9 @@ function BoardContent({
   moveColumns,
   moveCardInTheSameColumn,
   moveCardToDifferentColumn,
-  deleteColumnDetails
+  deleteColumnDetails,
+  deleteCardDetails,
+  updateCardDetails
 }) {
   // https://docs.dndkit.com/api-documentation/sensors
   // Nếu dùng PointerSensor mặc định thì phải kết hợp thuộc tính CSS touch-action: none ở những phần tử kéo thả - nhưng mà còn bug
@@ -398,6 +400,8 @@ function BoardContent({
           createNewColumn={createNewColumn}
           createNewCard={createNewCard}
           deleteColumnDetails={deleteColumnDetails}
+          deleteCardDetails={deleteCardDetails}
+          updateCardDetails={updateCardDetails}
         />
         <DragOverlay dropAnimation={customDropAnimation}>
           {!activeDragItemType && null}

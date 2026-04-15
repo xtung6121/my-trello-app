@@ -28,7 +28,7 @@ function BoardBar({ board }) {
     }
   }
   return (
-    <Box sx ={{
+    <Box sx={{
       height: (theme) => theme.trello.boardBarHeight,
       gap: 2,
       paddingX: 2,
@@ -41,28 +41,37 @@ function BoardBar({ board }) {
       bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#3498db')
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Tooltip title={ board?.description }>
+        <Tooltip title={board?.description}>
           <Chip
             sx={MENU_STYLE}
             icon={<DashboardIcon />}
             label={board?.title}
-            onClick = {() => {}}/>
+            onClick={() => { }} />
+        </Tooltip>
+        <Tooltip title={board?.type}>
           <Chip
             sx={MENU_STYLE}
             icon={<VpnLockIcon />}
             label={capitalizeFirstLetter(board?.type)}
-            onClick = {() => {}}/>
-          <Chip sx={MENU_STYLE} icon={<AddToDriveIcon />} label="Add to Google Drive" onClick = {() => {}}/>
-          <Chip sx={MENU_STYLE} icon={<BoltIcon />} label="Automation" onClick = {() => {}}/>
-          <Chip sx={MENU_STYLE} icon={<FilterListIcon />} label="Filter" onClick = {() => {}}/>
+            onClick={() => { }} />
         </Tooltip>
+        <Tooltip title="Add to Google Drive">
+          <Chip sx={MENU_STYLE} icon={<AddToDriveIcon />} label="Add to Google Drive" onClick={() => { }} />
+        </Tooltip>
+        <Tooltip title="Automation">
+          <Chip sx={MENU_STYLE} icon={<BoltIcon />} label="Automation" onClick={() => { }} />
+        </Tooltip>
+        <Tooltip title="Filter">
+          <Chip sx={MENU_STYLE} icon={<FilterListIcon />} label="Filter" onClick={() => { }} />
+        </Tooltip>
+
       </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
 
         <Button variant="outlined"
-          sx={{ borderColor: 'white', color:'white', '&:hover': { borderColor: 'white' } }}
-          startIcon={<PersonAddIcon/>}>
+          sx={{ borderColor: 'white', color: 'white', '&:hover': { borderColor: 'white' } }}
+          startIcon={<PersonAddIcon />}>
           Invite</Button>
 
         <AvatarGroup
@@ -79,27 +88,7 @@ function BoardBar({ board }) {
             }
           }}
         >
-          <Tooltip title="Xuan Tung">
-            <Avatar alt="XuanTung" src="" />
-          </Tooltip>
-          <Tooltip title="Diem Thi">
-            <Avatar alt="DiemThi" src="" />
-          </Tooltip>
-          <Tooltip title="AnhDung">
-            <Avatar alt="AnhDung" src="" />
-          </Tooltip>
-          <Tooltip title="DaoQuang">
-            <Avatar alt="DaoQuang" src="" />
-          </Tooltip>
-          <Tooltip title="ViNhan">
-            <Avatar alt="ViNhan" src="" />
-          </Tooltip>
-          <Tooltip title="Diem Thi">
-            <Avatar alt="DiemThi" src="" />
-          </Tooltip>
-          <Tooltip title="Diem Thi">
-            <Avatar alt="DiemThi" src="" />
-          </Tooltip>
+          <Avatar title="Xuan Tung" alt="XuanTung" src="" />
         </AvatarGroup>
       </Box>
 
