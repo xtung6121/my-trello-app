@@ -209,7 +209,12 @@ function Board() {
     setBoard(newBoard)
 
     // Gọi API xử lý phía BE
-    updateCardDetailsAPI(cardId, data)
+    const previousBoard = cloneDeep(board)
+    setBoard(newBoard)
+    updateCardDetailsAPI(cardId, data).catch(() => {
+      setBoard(previousBoard)
+      toast.error('Error updating card details')
+    })
   }
 
   if (!board) {
