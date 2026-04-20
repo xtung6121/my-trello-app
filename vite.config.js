@@ -9,17 +9,20 @@ export default defineConfig({
   base: './',
   resolve: {
     alias: [{ find: "~", replacement: "/src" }],
+    // Đảm bảo chỉ có 1 instance React duy nhất trong toàn bộ bundle
+    dedupe: ["react", "react-dom"],
   },
   build: {
     rollupOptions: {
       output: {
         manualChunks: (id) => {
           if (id.includes("node_modules")) {
-            if (id.includes("@mui")) {
-              return "vendor-mui";
-            }
-            if (id.includes("react")) {
+            // React phải được check TRƯỚC MUI vì MUI phụ thuộc React
+            if (id.includes("react") || id.includes("react-dom") || id.includes("scheduler")) {
               return "vendor-react";
+            }
+            if (id.includes("@mui") || id.includes("@emotion")) {
+              return "vendor-mui";
             }
             if (id.includes("lodash")) {
               return "vendor-lodash";
