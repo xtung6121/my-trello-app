@@ -12,25 +12,6 @@ export default defineConfig({
     dedupe: ["react", "react-dom"],
   },
   build: {
-    rollupOptions: {
-      output: {
-        // Để Rollup tự xử lý code splitting, tránh circular chunk
-        manualChunks: {
-          "vendor-react": ["react", "react-dom", "react-router-dom"],
-          "vendor-mui": [
-            "@mui/material",
-            "@mui/icons-material",
-            "@emotion/react",
-            "@emotion/styled",
-          ],
-          "vendor-dnd": [
-            "@dnd-kit/core",
-            "@dnd-kit/sortable",
-            "@dnd-kit/utilities",
-          ],
-          "vendor-misc": ["lodash", "axios", "react-toastify"],
-        },
-      },
-    },
+    chunkSizeWarningLimit: 1000,
   },
 });
